@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | [Challenge Name Here]</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+    @import url(https://fonts.google.com/specimen/Rubik);
+    *{
+      margin:0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body{
+      background-color: hsl(0, 0%, 96%);
+      font-family: 'Rubik', sans-serif;
+
+    }
+    main{
+      height: 100vh;
+      width:100%;
+      position: relative;
+      top:0;
+      left:0;
+    }
+    main:after{
+      content: '';
+      position: absolute;
+      top:-70%;
+      left:-10%;
+      height: 160%;
+      border-radius: 5000px;
+      width:40%;
+      background: linear-gradient(to left bottom,hsl(293, 100%, 63%),hsl(264, 100%, 61%));
+    }
+    .main-content{
+      display: flex;
+      height:inherit;
+      align-items: center;
+      justify-content: space-between;
+      gap:4rem;
+      width:60vw;
+      margin:0 auto;
+
+    }
+    
+    .mobile{
+      position: relative;
+      z-index: 2;
+      background: hsl(270, 20%, 96%);
+      padding:12px;
+      border-radius: 15px;
+      box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+      width:130%;
+    }
+    .mobile .container{
+      background:hsl(0, 0%, 90%); 
+      border-radius: 15px;
+      padding-bottom: 10px;
+    }
+    .mobile  .person{
+      display: flex;
+      background: linear-gradient(to left bottom,hsl(293, 100%, 63%),hsl(264, 100%, 61%));
+      border-radius: 15px 15px 0px 0px;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      top:0;
+      left:0;
+      width: 100%;
+      padding:5px 20px;
+      height:11vh;
+    }
+    .person:before{
+      content: '';
+      position: absolute;
+      top:-7%;
+      left:25%;
+      width:50%;
+      height:20px;
+      border-radius: 5000px;
+      background-color: hsl(270, 20%, 96%);
+    }
+    .person-img{
+      width:30px;
+      height:30px;
+      border-radius: 50%;
+      border:2px solid hsl(0, 0%, 96%)
+    }
+    .mobile .person .content{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap:10px;
+      margin-top: 15px;
+    } 
+    .content p{
+      font-size: 12px;
+      font-weight: bold;
+      color:#fff;
+      line-height: 1.1;
+    }
+    .content p span{
+      font-size: 10px;
+      color :hsl(276, 100%, 81%)
+    }
+    .hamburger{
+      margin-top: 15px;
+    }
+    .hamburger .line{
+      width:3px;
+      height:3px;
+      background-color: hsl(270, 20%, 96%);
+      border-radius: 5000px;
+      margin:1px 0px;
+    }
+    .text{
+      position: relative;
+      z-index: 2;
+    }
+    .chat{
+      display: flex;
+      flex-direction: column;
+      padding:0px 7px;
+    }
+    .chat p{
+      font-size: 13px;
+      max-width: 80%;
+      padding:10px 20px;
+      margin: 4px 0px;
+      border-radius: 5000px;
+    }
+    
+    .chat .sender{
+      color:hsl(276, 55%, 52%);
+      background: hsl(0, 1%, 96%);
+    }
+    .chat .receiver{
+      color :  hsl(271, 15%, 43%);
+      background-color: #fff;
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    }
+    .row{
+      display: flex;
+      flex-direction: column;
+      margin: 10px 0px;
+    }
+    .row-2{
+      align-items: flex-end;
+    }
+    .pictures{
+      display: flex;
+      gap:10px;
+      margin-bottom: 5px;
+    }
+    .pictures img{
+      height:50px;
+      width:50px;
+      border-radius: 10px;
+    }
+    .stylish-sender{
+      background:linear-gradient(to right bottom,hsl(293, 100%, 63%),hsl(264, 100%, 61%));;
+      color:#fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    .stylish-sender span{
+      font-weight: bold;
+      font-size: 17px;
+    }
+
+    .send-button{
+      padding:12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: hsl(0, 0%, 100%);
+      border-radius: 5000px;
+      margin:0px 7px;
+    }
+    .send-button p{
+      font-size: 12px;
+      color : hsl(206, 6%, 79%)
+    }
+    .send-button span{
+      background-color: hsl(271, 36%, 24%);
+      color:#fff;
+      padding:6px;
+      border-radius: 50%;
+    }
+
+    .text{
+      display: flex;
+      flex-direction: column;
+      gap:30px;
+    }
+    .text p{
+      color :  hsl(270, 7%, 64%);
+      line-height: 1.4;
+    }
+    @media(max-width:1250px){
+      .mobile{
+        width:200%;
+      }
+    }
+    @media(max-width:600px){
+      .main-content{
+        flex-direction: column;
+        margin:60px auto;
+      }
+      main:after{
+        height:130%;
+      }
+      .mobile{
+        width:140%;
+        gap:20px;
+      }
+    }
+    
+  </style>
+</head>
+<body>
+
+  <main>
+      <div class="main-content">
+        <div class="mobile">
+            <div class="container">
+
+              <div class="person">
+                <div class="content">
+                  <p style="color:hsl(0, 0%, 96%)">&LeftAngleBracket;</p>
+                  <img src="/images/avatar.jpg" class="person-img">
+                  <p>Samuel Green <br>
+                    <span>Available to Walk</span></p>
+                </div>
+                <div class="hamburger">
+                  <div class="line"></div>
+                  <div class="line"></div>
+                  <div class="line"></div>
+                </div>
+              </div>
+              
+
+              <div class="chat">
+                <div class="row">
+                  <p class="sender" role ='sender'>That sounds great. I’d be happy with that.</p>
+                  <p class="sender">
+                    Could you send over some pictures of your dog, please?
+                  </p>
+                </div>
+                <div class="row row-2">
+
+                  <div class="pictures">
+                    <img src="/images/dog-image-1.jpg" alt="">
+                    <img src="/images/dog-image-2.jpg" alt="">
+                    <img src="/images/dog-image-3.jpg" alt="">
+                  </div>
+                  <p class="receiver" role="receiver">Here are a few pictures. She’s a happy girl!</p>
+                  <p class="receiver">
+                    Can you make it?
+                  </p>
+                </div>
+                <div class="row">
+                  <p class="sender">
+                    She looks so happy! The time we discussed works. How long shall I take her out for?
+                  </p>
+
+                  <p class="stylish-sender">
+                    30 minute walk
+                    <span>$29</span>
+                  </p>
+                  <p class="stylish-sender">
+                    1 hour walk
+                    <span>$49</span>
+                  </p>
+                </div>
+              </div>
+
+
+              <div class="send-button">
+                <p>
+                  Type a message…
+                </p>
+                <span>
+                  &RightArrow;
+                </span>               
+              </div>
+            </div>
+        
+        </div>
+  
+        <div class="text">
+          <h1 style="color :hsl(271, 15%, 43%)"> Simple booking</h1>
+          <p>
+            Stay in touch with our dog walkers through the chat interface. This makes it easy to 
+            discuss arrangements and make bookings. Once the walk has been completed you can rate 
+            your walker and book again all through the chat.
+          </p>
+        </div>
+      </div>
+  </main>
+
+  <!-- Samuel Green
+  Available to Walk
+
+  That sounds great. I’d be happy with that.
+
+  Could you send over some pictures of your dog, please?
+
+  Here are a few pictures. She’s a happy girl!
+
+  Can you make it?
+
+  She looks so happy! The time we discussed works. How long shall I take her out for?
+
+  30 minute walk
+  $29
+
+  1 hour walk
+  $49
+
+  Type a message…
+
+  Simple booking
+
+  Stay in touch with our dog walkers through the chat interface. This makes it easy to 
+  discuss arrangements and make bookings. Once the walk has been completed you can rate 
+  your walker and book again all through the chat. -->
+  
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+</body>
+</html>
